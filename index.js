@@ -98,18 +98,18 @@
     return Array.from(codes);
   };
 
-  const newgen = {
+  const gencodex = {
     generate,
     charset,
   };
 
   if (typeof exports !== "undefined") {
     if (typeof module !== "undefined" && module.exports) {
-      module.exports = newgen;
+      module.exports = gencodex;
     } else {
-      exports.newgen = newgen;
+      exports.gencodex = gencodex;
     }
   } else {
-    root.newgen = newgen;
+    root.gencodex = gencodex;
   }
 }).call(this);

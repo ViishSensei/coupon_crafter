@@ -1,29 +1,29 @@
-const newgen = require("../index.js");
+const gencodex = require("../index.js");
 
-describe("newgen", () => {
+describe("gencodex", () => {
   test("should generate code of requested length", () => {
     const length = 5;
-    const [code] = newgen.generate({ length });
+    const [code] = gencodex.generate({ length });
 
     expect(code.length).toBe(length);
   });
 
   test("should generate code of default length", () => {
     const defaultLength = 8;
-    const [code] = newgen.generate({});
+    const [code] = gencodex.generate({});
 
     expect(code.length).toBe(defaultLength);
   });
 
   test("should generate code if no config is provided", () => {
     const defaultLength = 8;
-    const [code] = newgen.generate();
+    const [code] = gencodex.generate();
 
     expect(code.length).toBe(defaultLength);
   });
 
   test("should generate 5 unique codes", () => {
-    const codes = newgen.generate({ length: 2, count: 5 });
+    const codes = gencodex.generate({ length: 2, count: 5 });
 
     expect(codes.length).toBe(5);
     codes.forEach((code, idx) => {
@@ -35,7 +35,7 @@ describe("newgen", () => {
   test("should generate a code consisting of numbers only", () => {
     const numbers = "0123456789";
     const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const [code] = newgen.generate({ length: 10, charset: numbers });
+    const [code] = gencodex.generate({ length: 10, charset: numbers });
 
     expect(code.length).toBe(10);
     [...code].forEach((char) => {
@@ -47,7 +47,7 @@ describe("newgen", () => {
   test("should generate a code consisting of letters only", () => {
     const numbers = "0123456789";
     const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const [code] = newgen.generate({ length: 10, charset: letters });
+    const [code] = gencodex.generate({ length: 10, charset: letters });
 
     expect(code.length).toBe(10);
     [...code].forEach((char) => {
@@ -57,25 +57,25 @@ describe("newgen", () => {
   });
 
   test("should generate code with prefix", () => {
-    const [code] = newgen.generate({ prefix: "promo-" });
+    const [code] = gencodex.generate({ prefix: "promo-" });
 
     expect(code).toMatch(/^promo-/);
   });
 
   test("should generate code with postfix", () => {
-    const [code] = newgen.generate({ postfix: "-extra" });
+    const [code] = gencodex.generate({ postfix: "-extra" });
 
     expect(code).toMatch(/-extra$/);
   });
 
   test("should generate code with prefix and postfix", () => {
-    const [code] = newgen.generate({ prefix: "promo-", postfix: "-extra" });
+    const [code] = gencodex.generate({ prefix: "promo-", postfix: "-extra" });
 
     expect(code).toMatch(/^promo-.*-extra$/);
   });
 
   test("should generate code from pattern", () => {
-    const [code] = newgen.generate({ pattern: "##-###-##" });
+    const [code] = gencodex.generate({ pattern: "##-###-##" });
 
     expect(code).toMatch(
       /^([0-9a-zA-Z]{2})-([0-9a-zA-Z]{3})-([0-9a-zA-Z]{2})$/,
@@ -85,7 +85,7 @@ describe("newgen", () => {
   test("should detect infeasible config", () => {
     const config = { count: 1000, charset: "abc", length: 5 };
 
-    expect(() => newgen.generate(config)).toThrow(
+    expect(() => gencodex.generate(config)).toThrow(
       "Not possible to generate requested number of codes.",
     );
   });
@@ -93,20 +93,20 @@ describe("newgen", () => {
   test("should detect infeasible config for charset with duplicates", () => {
     const config = { count: 2, charset: "11", length: 2 };
 
-    expect(() => newgen.generate(config)).toThrow(
+    expect(() => gencodex.generate(config)).toThrow(
       "Not possible to generate requested number of codes.",
     );
   });
 
   test("should generate fixed code", () => {
     const config = { count: 1, pattern: "FIXED" };
-    const [code] = newgen.generate(config);
+    const [code] = gencodex.generate(config);
 
     expect(code).toEqual("FIXED");
   });
 
   test("should generate single sequential codes from numbers charset", () => {
-    const config = { charset: newgen.charset("numbers"), pattern: "A###Z" };
+    const config = { charset: gencodex.charset("numbers"), pattern: "A###Z" };
     const codes = [
       "A000Z",
       "A001Z",
@@ -124,17 +124,17 @@ describe("newgen", () => {
     ];
 
     codes.forEach((expected, idx) => {
-      expect(newgen.generate(config, idx)[0]).toEqual(expected);
+      expect(gencodex.generate(config, idx)[0]).toEqual(expected);
     });
   });
 
   test("should generate series of sequential codes from numbers charset", () => {
     const config = {
-      charset: newgen.charset("numbers"),
+      charset: gencodex.charset("numbers"),
       pattern: "A###Z",
       count: 12,
     };
-    const codes = newgen.generate(config, 190);
+    const codes = gencodex.generate(config, 190);
 
     expect(codes).toEqual([
       "A190Z",
@@ -153,7 +153,7 @@ describe("newgen", () => {
   });
 
   test("should generate first or last code when sequenceOffset is out of range", () => {
-    const config = { charset: newgen.charset("numbers"), pattern: "A##Z" };
+    const config = { charset: gencodex.charset("numbers"), pattern: "A##Z" };
 
     const cases = [
       { offset: -2, expected: "A00Z" },
@@ -165,13 +165,13 @@ describe("newgen", () => {
     ];
 
     cases.forEach(({ offset, expected }) => {
-      expect(newgen.generate(config, offset)[0]).toEqual(expected);
+      expect(gencodex.generate(config, offset)[0]).toEqual(expected);
     });
   });
 
   test("should generate series of sequential codes from alphabetic charset", () => {
     const config = {
-      charset: newgen.charset("alphabetic"),
+      charset: gencodex.charset("alphabetic"),
       pattern: "###",
       prefix: "prefix-",
       postfix: "-postfix",
@@ -196,13 +196,13 @@ describe("newgen", () => {
     ];
 
     codes.forEach((expected, idx) => {
-      expect(newgen.generate(config, idx)[0]).toEqual(expected);
+      expect(gencodex.generate(config, idx)[0]).toEqual(expected);
     });
   });
 
   test("should generate series of sequential codes from charset with duplicates", () => {
     const config = { charset: "001", pattern: "##", count: 4 };
-    const codes = newgen.generate(config, 0);
+    const codes = gencodex.generate(config, 0);
 
     expect(codes).toEqual(["00", "01", "10", "11"]);
   });
