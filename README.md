@@ -1,4 +1,4 @@
-# gencode - Modernized Code Generator Library
+# newgen - Modernized Code Generator Library
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -20,7 +20,7 @@ A lightweight, customizable, and efficient code generation library written in Ja
 ## 📦 Installation
 
 ```bash
-npm install gencode
+npm install newgen
 ```
 
 ---
@@ -32,7 +32,7 @@ npm install gencode
 #### For Node.js
 
 ```javascript
-const gencode = require("gencode");
+const newgen = require("newgen");
 ```
 
 #### For Browsers
@@ -40,9 +40,9 @@ const gencode = require("gencode");
 Include the script file:
 
 ```html
-<script src="path/to/gencode.js"></script>
+<script src="path/to/newgen.js"></script>
 <script>
-  const code = gencode.generate({ length: 6 });
+  const code = newgen.generate({ length: 6 });
 </script>
 ```
 
@@ -51,7 +51,7 @@ Include the script file:
 ### Generate a Code
 
 ```javascript
-const code = gencode.generate({
+const code = newgen.generate({
   length: 8,
   prefix: "promo-",
   postfix: "-end",
@@ -63,10 +63,10 @@ console.log(code); // Example: promo-Ab12Cd34-end
 ### Generate Multiple Unique Codes
 
 ```javascript
-const codes = gencode.generate({
+const codes = newgen.generate({
   count: 5,
   length: 6,
-  charset: gencode.charset("alphabetic"),
+  charset: newgen.charset("alphabetic"),
 });
 
 console.log(codes);
@@ -78,12 +78,12 @@ console.log(codes);
 ```javascript
 const config = {
   pattern: "A###Z",
-  charset: gencode.charset("numbers"),
+  charset: newgen.charset("numbers"),
 };
 
-console.log(gencode.generate(config, 0)); // ['A000Z']
-console.log(gencode.generate(config, 1)); // ['A001Z']
-console.log(gencode.generate(config, 10)); // ['A010Z']
+console.log(newgen.generate(config, 0)); // ['A000Z']
+console.log(newgen.generate(config, 1)); // ['A001Z']
+console.log(newgen.generate(config, 10)); // ['A010Z']
 ```
 
 ---

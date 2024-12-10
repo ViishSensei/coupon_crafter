@@ -1,17 +1,17 @@
 {
-  "name": "gencode",
+  "name": "newgen",
   "version": "0.0.1",
   "description": "A lightweight, customizable, and efficient code generation library for JavaScript.",
-  "homepage": "https://github.com/ViishSensei/gencode",
+  "homepage": "https://github.com/ViishSensei/newgen",
   "author": "ViishSensei",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ViishSensei/gencode.git"
+    "url": "https://github.com/ViishSensei/newgen.git"
   },
   "bugs": {
-    "url": "https://github.com/ViishSensei/gencode/issue",
+    "url": "https://github.com/ViishSensei/newgen/issue",
     "discord": "https://discord.com/invite/viish"
   }
 }
