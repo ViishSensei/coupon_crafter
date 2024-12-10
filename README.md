@@ -1,6 +1,6 @@
 # gencodex - Modernized Code Generator Library
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)[![Discord](https://img.shields.io/discord/1275486972252786730?label=discord)](https://discord.gg/viish)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Discord](https://img.shields.io/discord/1275486972252786730?label=discord)](https://discord.gg/viish)
 
 A lightweight, customizable, and efficient code generation library written in JavaScript. This modernized version preserves all the original functionality while enhancing readability, maintainability, and compatibility with ES6+ standards.
 
