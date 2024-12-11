@@ -98,18 +98,18 @@
     return Array.from(codes);
   };
 
-  const gencodex = {
+  const coupon_crafter = {
     generate,
     charset,
   };
 
   if (typeof exports !== "undefined") {
     if (typeof module !== "undefined" && module.exports) {
-      module.exports = gencodex;
+      module.exports = coupon_crafter;
     } else {
-      exports.gencodex = gencodex;
+      exports.coupon_crafter = coupon_crafter;
     }
   } else {
-    root.gencodex = gencodex;
+    root.coupon_crafter = coupon_crafter;
   }
 }).call(this);

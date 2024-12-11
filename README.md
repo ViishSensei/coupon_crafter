@@ -1,4 +1,4 @@
-# gencodex - Modernized Code Generator Library
+# coupon_crafter - Modernized Code Generator Library
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Discord](https://img.shields.io/discord/1275486972252786730?label=discord)](https://discord.gg/viish)
 
@@ -20,7 +20,7 @@ A lightweight, customizable, and efficient code generation library written in Ja
 ## 📦 Installation
 
 ```bash
-npm install gencodex
+npm install coupon_crafter
 ```
 
 ---
@@ -32,7 +32,7 @@ npm install gencodex
 #### For Node.js
 
 ```javascript
-const gencodex = require("gencodex");
+const coupon_crafter = require("coupon_crafter");
 ```
 
 #### For Browsers
@@ -40,9 +40,9 @@ const gencodex = require("gencodex");
 Include the script file:
 
 ```html
-<script src="path/to/gencodex.js"></script>
+<script src="path/to/coupon_crafter.js"></script>
 <script>
-  const code = gencodex.generate({ length: 6 });
+  const code = coupon_crafter.generate({ length: 6 });
 </script>
 ```
 
@@ -51,7 +51,7 @@ Include the script file:
 ### Generate a Code
 
 ```javascript
-const code = gencodex.generate({
+const code = coupon_crafter.generate({
   length: 8,
   prefix: "promo-",
   postfix: "-end",
@@ -63,10 +63,10 @@ console.log(code); // Example: promo-Ab12Cd34-end
 ### Generate Multiple Unique Codes
 
 ```javascript
-const codes = gencodex.generate({
+const codes = coupon_crafter.generate({
   count: 5,
   length: 6,
-  charset: gencodex.charset("alphabetic"),
+  charset: coupon_crafter.charset("alphabetic"),
 });
 
 console.log(codes);
@@ -78,12 +78,12 @@ console.log(codes);
 ```javascript
 const config = {
   pattern: "A###Z",
-  charset: gencodex.charset("numbers"),
+  charset: coupon_crafter.charset("numbers"),
 };
 
-console.log(gencodex.generate(config, 0)); // ['A000Z']
-console.log(gencodex.generate(config, 1)); // ['A001Z']
-console.log(gencodex.generate(config, 10)); // ['A010Z']
+console.log(coupon_crafter.generate(config, 0)); // ['A000Z']
+console.log(coupon_crafter.generate(config, 1)); // ['A001Z']
+console.log(coupon_crafter.generate(config, 10)); // ['A010Z']
 ```
 
 ---

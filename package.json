@@ -1,17 +1,17 @@
 {
-  "name": "gencodex",
+  "name": "coupon_crafter",
   "version": "0.0.1",
   "description": "A lightweight, customizable, and efficient code generation library for JavaScript.",
-  "homepage": "https://github.com/ViishSensei/gencodex",
+  "homepage": "https://github.com/ViishSensei/coupon_crafter",
   "author": "ViishSensei",
   "license": "MIT",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ViishSensei/gencodex.git"
+    "url": "git+https://github.com/ViishSensei/coupon_crafter.git"
   },
   "bugs": {
-    "url": "https://github.com/ViishSensei/gencodex/issue",
+    "url": "https://github.com/ViishSensei/coupon_crafter/issue",
     "discord": "https://discord.com/invite/viish"
   }
 }
